@@ -6,16 +6,31 @@ license:            Apache-2.0
 license-file:       LICENSE
 author:             Vladimir Sinyakov, Vladislav Sabanov
 maintainer:         team@encoins.io
+build-type:         Simple
 extra-source-files:
   CHANGELOG.md
   README.md
 
 library
-  ghc-options:      -Wall -Wno-unrecognised-pragmas
-  exposed-modules:  L18n.Landing
-  build-depends:    base ^>=4.12.0.0
-  hs-source-dirs:   src
-  default-language: Haskell2010
+  ghc-options:        -Wall -Wno-unrecognised-pragmas
+  exposed-modules:
+    I18n.App
+    I18n.Dao
+    I18n.Landing
+
+  build-depends:
+    , aeson
+    , base   ^>=4.12.0.0
+    , text
+
+  -- , string-interpolate
+
+  hs-source-dirs:     src
+  default-language:   Haskell2010
+  default-extensions:
+    DeriveGeneric
+    DerivingStrategies
+    InstanceSigs
 
 executable encoins-frontend-v2
   main-is:          Main.hs

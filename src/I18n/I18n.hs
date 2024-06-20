@@ -1,4 +1,4 @@
-module L18n.L18n where
+module I18n.I18n where
 
 import Data.Aeson
     ( FromJSON
@@ -7,7 +7,7 @@ import Data.Aeson
     , genericToEncoding
     , genericToJSON
     )
-import Data.Text
+import Data.Text (Text)
 import GHC.Generics (Generic)
 
 data Locale = EN_GB

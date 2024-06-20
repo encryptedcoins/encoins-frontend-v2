@@ -1,6 +1,9 @@
-module L18n.Landing where
+{-# LANGUAGE OverloadedStrings #-}
 
-import L18n.L18n
+module I18n.Landing where
+
+import I18n.I18n
+import Data.Text (Text)
 
 data Message
     = MenuHome
@@ -34,6 +37,7 @@ data Message
     deriving stock (Show, Eq)
 
 instance I18N Message where
+    i18n :: Locale -> Message -> Text
     i18n EN_GB MenuHome = "Home"
     i18n EN_GB MenuApp = "APP"
     i18n EN_GB MenuDao = "Dao"

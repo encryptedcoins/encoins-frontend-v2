@@ -1,14 +1,12 @@
-module L18n.App where
+{-# LANGUAGE OverloadedStrings #-}
 
-import L18n.L18n
+module I18n.App where
+
+import I18n.I18n
+import Data.Text (Text)
 
 data Message
-    = MenuTestnet
-    | MenuMainnet
-    | Connect
-    | ConnectWallet
-    | Disconnect
-    | PassProtect
+    = PassProtect
     | PassCurrent
     | PassEnter
     | PassRepeat
@@ -18,10 +16,6 @@ data Message
     | CleanCacheTitle
     | CleanCacheText
     | CleanCacheCancel
-    | Tutorial
-    | HowDelegate
-    | HowUseWallet
-    | HowUseLedger
     | TabWallet
     | TabTransfer
     | TabLedger
@@ -63,11 +57,7 @@ data Message
     deriving stock (Show, Eq)
 
 instance I18N Message where
-    i18n EN_GB MenuTestnet = "Testnet Preprod"
-    i18n EN_GB MenuMainnet = "Mainnet"
-    i18n EN_GB Connect = "Connect"
-    i18n EN_GB ConnectWallet = "Connect Wallet"
-    i18n EN_GB Disconnect = "Disconnect"
+    i18n :: Locale -> Message -> Text
     i18n EN_GB PassProtect = "Protect cache of Encoins app"
     i18n EN_GB PassCurrent = "Current password"
     i18n EN_GB PassEnter = "Enter password"
@@ -78,10 +68,6 @@ instance I18N Message where
     i18n EN_GB CleanCacheTitle = "Clean cache"
     i18n EN_GB CleanCacheText = "This action will reset password and clean cache (remove known coins)!"
     i18n EN_GB CleanCacheCancel = "Cancel"
-    i18n EN_GB Tutorial = "Encoins' tutorial"
-    i18n EN_GB HowDelegate = "How to delegate"
-    i18n EN_GB HowUseWallet = "How to use wallet mode"
-    i18n EN_GB HowUseLedger = "How to use ledger mode"
     i18n EN_GB TabWallet = "Wallet"
     i18n EN_GB TabTransfer = "Transfer"
     i18n EN_GB TabLedger = "Ledger"
